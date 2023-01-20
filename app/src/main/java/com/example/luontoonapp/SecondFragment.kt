@@ -7,6 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.luontoonapp.databinding.FragmentSecondBinding
+import com.example.luontoonapp.R
+import org.osmdroid.config.Configuration
+import org.osmdroid.tileprovider.constants.OpenStreetMapTileProviderConstants
+import org.osmdroid.views.MapView
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -31,10 +36,13 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+        Configuration.getInstance().setUserAgentValue("LuontoonApp/1.0")
+        val mapView = view.findViewById<MapView>(R.id.mapView)
+        mapView.setTileSource(TileSourceFactory.MAPNIK)
+        mapView.setBuiltInZoomControls(true)
+        mapView.setMultiTouchControls(true)
+        mapView.setMinZoomLevel(3.0)
+        mapView.setMaxZoomLevel(20.0)
     }
 
     override fun onDestroyView() {
