@@ -28,7 +28,8 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val permissionHelper = PermissionHelper(requireActivity())
+        permissionHelper.requestLocationPermission()
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
 
