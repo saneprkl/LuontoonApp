@@ -19,6 +19,7 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
+    private lateinit var userLocation: UserLocation
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,6 +31,7 @@ class SecondFragment : Fragment() {
     ): View? {
         val permissionHelper = PermissionHelper(requireActivity())
         permissionHelper.requestLocationPermission()
+
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -44,6 +46,8 @@ class SecondFragment : Fragment() {
         mapView.setMultiTouchControls(true)
         mapView.setMinZoomLevel(3.0)
         mapView.setMaxZoomLevel(20.0)
+        userLocation = UserLocation(requireContext())
+        userLocation.startTracking(mapView)
     }
 
     override fun onDestroyView() {
