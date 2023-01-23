@@ -23,6 +23,8 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val permissionHelper = PermissionHelper(requireActivity())
+        permissionHelper.requestLocationPermission()
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
