@@ -57,11 +57,6 @@ class SecondFragment : Fragment() {
         val fusedLocationClient: FusedLocationProviderClient
         super.onViewCreated(view, savedInstanceState)
         Configuration.getInstance().setUserAgentValue("LuontoonApp/1.0")
-        val mapView = view.findViewById<MapView>(R.id.mapView)
-        mapView.setTileSource(TileSourceFactory.MAPNIK)
-        mapView.setMultiTouchControls(true)
-        var longitude : Double = 35.000
-        var latitude : Double = 55.000
 
         if (ContextCompat.checkSelfPermission(requireContext(),
             Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -75,10 +70,14 @@ class SecondFragment : Fragment() {
                 if (location == null) {
                     Toast.makeText(requireContext(), "Cannot get location.", Toast.LENGTH_SHORT).show()
                 } else {
-                    longitude = location.longitude
-                    latitude = location.latitude
+                    val mapView = view.findViewById<MapView>(R.id.mapView)
+                    mapView.setTileSource(TileSourceFactory.MAPNIK)
+                    mapView.setMultiTouchControls(true)
+
+                    var longitude = location.longitude
+                    var latitude = location.latitude
                     val userLocation = Marker(mapView)
-                    var geoPoint = GeoPoint(latitude, longitude)
+                    val geoPoint = GeoPoint(latitude, longitude)
                     userLocation.position = geoPoint
 
                     userLocation.setAnchor(Marker.ANCHOR_BOTTOM, Marker.ANCHOR_CENTER)
@@ -87,13 +86,15 @@ class SecondFragment : Fragment() {
                         requireContext(),
                         R.drawable.baseline_person_pin_circle_24
                     )
+                    val mapController = mapView.controller
+                    val start = GeoPoint(latitude, longitude)
+                    mapController.setCenter(start)
+                    mapController.setZoom(14.5)
+
                     mapView.overlays.add(userLocation)
                 }
             }
-            val mapController = mapView.controller
-            val start = GeoPoint(latitude, longitude)
-            mapController.setCenter(start)
-            mapController.setZoom(6.5)
+
         }
 
     }
