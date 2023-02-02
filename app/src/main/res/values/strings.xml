@@ -7,5 +7,10 @@
     <string name="next">To Map</string>
     <string name="previous">Previous</string>
 
+    <string name="uusiRetki">Aloita\nUusi\nRetki</string>
+    <string name="kartta">Kartta</string>
+    <string name="aiempi">Aiemmat\nReitit</string>
+    <string name="ansaitut">Ansaitut kreditit</string>
+
     <string name="hello_first_fragment">Hello front page</string>
 </resources>
