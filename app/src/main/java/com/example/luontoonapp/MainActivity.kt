@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.luontoonapp.databinding.ActivityMainBinding
+import com.example.luontoonapp.LoginFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +45,14 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
         return when (item.itemId) {
+            R.id.action_login -> {
+                val action = LoginFragment.actionGlobalLoginFragment()
+                navController.navigate(action)
+                true
+            }
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }

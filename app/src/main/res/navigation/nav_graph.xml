@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/FirstFragment">
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/LoginFragment"/>
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -24,5 +27,12 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.example.luontoonapp.LoginFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
     </fragment>
 </navigation>
