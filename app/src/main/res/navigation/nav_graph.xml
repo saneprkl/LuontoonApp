@@ -33,6 +33,6 @@
         android:name="com.example.luontoonapp.LoginFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
     </fragment>
+
 </navigation>

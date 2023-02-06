@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         return when (item.itemId) {
             R.id.action_login -> {
-                val action = LoginFragment.actionGlobalLoginFragment()
+                val action = LoginFragmentDirections.actionGlobalLoginFragment()
                 navController.navigate(action)
                 true
             }

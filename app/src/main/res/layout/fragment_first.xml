@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".FirstFragment">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         app:backgroundTint="@null"
         android:background="@drawable/journey_button"
         android:layout_marginTop="115dp"
@@ -24,6 +26,7 @@
         android:backgroundTint="@color/green"
         android:layout_width="120dp"
         android:layout_height="70dp"
+        android:textColor="@color/white"
         android:text="@string/aiempi"
         android:textAllCaps="false"
         android:layout_marginStart="50dp"
@@ -38,6 +41,7 @@
         android:backgroundTint="@color/green"
         android:text="@string/kartta"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:layout_marginEnd="50dp"
         android:layout_marginTop="55dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +53,7 @@
         android:layout_height="70dp"
         android:backgroundTint="@color/green"
         android:text="@string/ansaitut"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
